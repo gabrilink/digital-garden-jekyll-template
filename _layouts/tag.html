@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<h1>Notes tagged: {{ page.tag }}</h1>
+
+<ul>
+  {% for note in site.notes %}
+    {% if note.tags contains page.tag %}
+      <li><a href="{{ note.url }}">{{ note.title }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<a href="/">Back to Home</a>

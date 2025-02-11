@@ -1,5 +1,7 @@
 ---
 title: Your first seed
+date: 2025-02-11
+tags: [jekyll, tutorial, web]
 ---
 
 ### Welcome!

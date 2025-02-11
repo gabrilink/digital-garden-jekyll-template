@@ -11,11 +11,12 @@ permalink: /
 
 {% if latest_note %}
 
-  <div class="latest-note">
-    <h3><a class="internal-link" href="{{ site.baseurl }}{{ latest_note.url }}">{{ latest_note.title }}</a></h3>
-    <p>{{ latest_note.content | strip_html | truncatewords: 50 }}</p>
-    <a href="{{ site.baseurl }}{{ latest_note.url }}" class="read-more">Read more →</a>
-  </div>
+  <h3><a class="internal-link" href="{{ site.baseurl }}{{ latest_note.url }}">{{ latest_note.title }}</a></h3>
+  {% assign word_count = latest_note.content | number_of_words %}
+  {% assign reading_time = word_count | divided_by: 200 | ceil %}
+  <p>{{ latest_note.last_modified_at | date: "%B %d, %Y" }} · {{ reading_time }} min read</p>
+  <p>{{ latest_note.content | strip_html | truncatewords: 50 }}</p>
+  <!--<a href="{{ site.baseurl }}{{ latest_note.url }}" class="read-more">Keep reading →</a>-->
 {% endif %}
 
 <!--
@@ -23,6 +24,25 @@ permalink: /
   Take a look at <span style="font-weight: bold">[[Your first note]]</span> to get started on your exploration.
 </p>
 -->
+
+<strong>Topics</strong>
+
+<p>
+  {% assign tag_list = "" | split: "," %}
+
+{% for note in site.notes %}
+{% for tag in note.tags %}
+{% unless tag_list contains tag %}
+{% assign tag_list = tag_list | push: tag %}
+{% endunless %}
+{% endfor %}
+{% endfor %}
+
+{% for tag in tag_list %}
+<a href="/tags/{{ tag }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+{% endfor %}
+
+</p>
 
 <strong>Recently updated notes</strong>
 
@@ -41,12 +61,12 @@ permalink: /
     margin: 0 auto; /* Centers the content horizontally */
     padding: 0 1em; /* Adds some padding to prevent content from touching the edges */
   }
-  .latest-note {
-    background: #f5f7ff;
-    padding: 1em;
-    border-radius: 4px;
-    margin-top: 1em;
-  }
+.latest-note {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  margin-top: 0;
+}
   .latest-note h2 {
     margin: 0 0 0.5em;
   }
