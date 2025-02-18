@@ -1,0 +1,96 @@
+- title: freeCodeCamp
+  items:
+    - name: Foundational C# with Microsoft
+      date: 2025-02-18
+      link: https://www.freecodecamp.org/certification/Gabrilink/foundational-c-sharp-with-microsoft
+      logo: freecodecamp.svg
+- title: Pikuma
+  items:
+    - name: PS1 Programming with MIPS Assembly & C
+      date: 2024-11-11
+      link: https://courses.pikuma.com/certificates/uq7zul9uj1
+      logo: pikuma-logo.svg
+- title: Unity
+  items:
+    - name: Unity Essentials Pathway
+      date: 2021-08-26
+      link: https://www.credly.com/badges/58981f93-277d-4a82-bebd-77a8bd3aa032/public_url
+      logo: unity-essentials-pathway.png
+    - name: Unity Junior Programmer
+      date: 2022-07-25
+      link: https://www.credly.com/badges/150942e4-fe9b-46bd-9b80-a7ad18b59768/public_url
+      logo: unity-junior-programmer.png
+- title: Sophos
+  items:
+    - name: Sophos Certified Engineer
+      date: 2018-09-26
+      pdf: https://drive.google.com/file/d/1bNsd6pgjT-3-6O6UwV8ilmxO11e2IAHx/view?usp=sharing
+      logo: sophos_logo.svg
+- title: Micro Focus / OpenText
+  items:
+    - name: CyberRes-Access Management Certified Presales Engineer (MFCPE)
+      date: 2021-04-22
+      link: https://www.credly.com/badges/d7e52ffe-cacb-43f8-9341-3011a015a159/public_url
+      logo: cyberres-access-management-certified-presales-engineer-mfcpe.png
+    - name: CyberRes-IGA Certified Presales Engineer (MFCPE)
+      date: 2021-04-22
+      link: https://www.credly.com/badges/d7e52ffe-cacb-43f8-9341-3011a015a159/public_url
+      logo: cyberres-iga-certified-presales-engineer-mfcpe.png
+    - name: CyberRes-File Analysis Suite Certified Presales Engineer (MFCPE)
+      date: 2021-07-29
+      link: https://www.credly.com/badges/26193179-99fa-41b1-aecf-851d7104a5ff/public_url
+      logo: cyberres-file-analysis-suite-certified-presales-engineer-mfcpe.png
+    - name: IM&G-ControlPoint Certified Presales Engineer (MFCPE)
+      date: 2021-08-24
+      link: https://www.credly.com/badges/b6d66729-5ce7-4b84-af83-e1deb253b86c/public_url
+      logo: im-g-controlpoint-certified-presales-engineer-mfcpe.png
+    - name: Identity Manager Identity Applications Administrator Certified Specialist
+      date: 2021-08-23
+      link: https://www.credly.com/badges/9964da74-09b8-4c2e-be1b-406ad689a4ea/public_url
+      logo: identity-manager-identity-applications-administrato.png
+    - name: IM&G-Content Manager Certified Presales Engineer (MFCPE)
+      date: 2021-08-24
+      link: https://www.credly.com/badges/9fc64a4a-c1dc-4ae4-9d7a-5962549f67f0/public_url
+      logo: im-g-content-manager-certified-presales-engineer-mfcpe.png
+    - name: Identity Manager Administrator Certified Professional
+      date: 2021-07-26
+      link: https://www.credly.com/badges/b4acd7aa-74cb-46de-ab5c-b7d897cc4b38/public_url
+      logo: identity-manager-administrator-certified-professional.png
+    - name: Identity Manager Administrator Certified Specialist
+      date: 2021-08-23
+      link: https://www.credly.com/badges/2558d7ce-d830-4461-baab-e182cd70f912/public_url
+      logo: identity-manager-administrator-certified-specialist.png
+    - name: CyberRes-File Governance Certified Presales Engineer (MFCPE)
+      date: 2021-08-24
+      link: https://www.credly.com/badges/ecd12ff4-e0bb-402b-9487-b4d1a249e44c/public_url
+      logo: cyberres-file-governance-certified-presales-engineer-mfcpe.png
+    - name: OpenText Certified Business Administrator - NetIQ Identity Manager
+      date: 2023-04-26
+      link: https://www.credly.com/badges/f9154d87-8843-4161-85bd-5fc63ce63e96/public_url
+      logo: opentext-certified-business-administrator-netiq-ide.1.png
+    - name: OpenText Certified Administrator - NetIQ Identity Manager
+      date: 2023-04-26
+      link: https://www.credly.com/badges/8f96e7f8-faf7-4d6f-aefd-cf02b5ce15f1/public_url
+      logo: opentext-certified-administrator-netiq-identity-man.png
+- title: Bitdefender
+  items:
+    - name: Bitdefender Certified Technical Specialist
+      date: 2019-11-26
+      pdf:  https://drive.google.com/file/d/18yEF981oTF_XDzWQEcuz5rMSUHBQDChC/view?usp=sharing
+      logo: bitdefender_logo.svg
+    - name: Bitdefender Certified Technical Specialist
+      date: 2021-08-29
+      pdf:  https://drive.google.com/file/d/1xqt-bmVxsSrCejWkccaRKvu5nBai75VD/view?usp=sharing
+      logo: bitdefender_logo.svg
+    - name: Bitdefender Certified Technical Specialist
+      date: 2021-09-07
+      pdf:  https://drive.google.com/file/d/14l9GtHl_lSwOdcY5kYnakdKX1f06o2j0/view?usp=sharing
+      logo: bitdefender_logo.svg
+    - name: Bitdefender Certified Technical Specialist
+      date: 2021-09-08
+      pdf:  https://drive.google.com/file/d/1TrUMjKSyeaUcVQePAa0gbAprlpYO-adX/view?usp=sharing
+      logo: bitdefender_logo.svg
+    - name: Bitdefender Certified MSP Technical Specialist
+      date: 2021-09-07
+      pdf:  https://drive.google.com/file/d/1urGq5wpi3JpyWoFLu8AqxvvgQrXt_3ih/view?usp=sharing
+      logo: bitdefender_logo.svg
