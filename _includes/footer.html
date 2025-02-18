@@ -1,3 +1,10 @@
-This is the footer. Include anything you'd like here, like a link to an <a class="internal-link"
-    href="{{ site.baseurl }}/about">About</a> page.
+<!--This is the footer. Include anything you'd like here, like a link to an <a class="internal-link"
+    href="{{ site.baseurl }}/about">About</a> page.-->
 
+&copy; <span id="current-year"></span> Gabriele Passuello. All rights reserved.
+      
+<script>
+    // Ottieni l'anno corrente e inseriscilo nel footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+      

@@ -11,7 +11,7 @@ permalink: /
 
 {% if latest_note %}
 
-  <h3><a class="internal-link" href="{{ site.baseurl }}{{ latest_note.url }}">{{ latest_note.title }}</a></h3>
+  <h4><a class="internal-link" href="{{ site.baseurl }}{{ latest_note.url }}">{{ latest_note.title }}</a></h4>
   {% assign word_count = latest_note.content | number_of_words %}
   {% assign reading_time = word_count | divided_by: 200 | ceil %}
   <p>{{ latest_note.last_modified_at | date: "%B %d, %Y" }} · {{ reading_time }} min read</p>

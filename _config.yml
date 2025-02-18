@@ -42,3 +42,7 @@ defaults:
       path: "_notes/**/*.md"
     values:
       layout: "note"
+
+minima:
+  skin: dark
+

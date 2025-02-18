@@ -60,4 +60,35 @@
         background-color: #121212;
         color: white;
     }
+    body.dark-mode a {
+    color: #bb86fc; /* Colore per i link in modalità dark mode */
+}
+
+body.dark-mode a:hover {
+    color: #3700b3; /* Colore per i link al passaggio del mouse in modalità dark mode */
+}
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const toggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        // Carica lo stato salvato
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            body.classList.add('dark-mode');
+            toggle.checked = true;
+        }
+
+        toggle.addEventListener('change', () => {
+            if (toggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+        });
+    });
+</script>
+
