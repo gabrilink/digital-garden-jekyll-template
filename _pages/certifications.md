@@ -11,37 +11,34 @@ permalink: /certifications
     <br><br>
     Clicking on any of the certification boxes will open an external webpage. The <span style="color: red;">red</span> indicator means the link leads to an external website, while the <span style="color: blue;">blue</span> indicator shows the link leads to the certification saved in my Google Drive account.
 </p>
-
-<!-- Navigazione tra le sezioni -->
-<nav>
+<!-- Navigation Menu -->
+<nav id="menu">
     <ul>
-        <li><a href="#top">Back to top</a></li>
+        <li><a href="#" data-category="all" class="active">ALL</a></li>
         {% for category in site.data.certifications %}
-            <li><a href="#{{ category.title | slugify }}">{{ category.title }}</a></li>
+        <li><a href="#" data-category="{{ category.title | slugify }}">{{ category.title }}</a></li>
         {% endfor %}
-        <li><a href="#bottom">Go to bottom</a></li>
     </ul>
 </nav>
-
-
-{% for category in site.data.certifications %}
-<section id="{{ category.title | slugify }}">
-    <h2 style="text-align: center;">{{ category.title }}</h2>
-    <br>
-    <div class="certifications-grid">
-        {% for cert in category.items %}
-        <div class="certification" data-pdf="{{ cert.pdf }}" data-link="{{ cert.link }}">
-            <div class="cert-thumbnail">
-                <img src="/assets/logos/{{ cert.logo | default: 'default-logo.png' }}" alt="{{ cert.name }} logo" class="cert-logo">
+<div id="certifications-container">
+    {% for category in site.data.certifications %}
+    <section class="certification-category" data-category="{{ category.title | slugify }}">
+        <h2 style="text-align: center;">{{ category.title }}</h2>
+        <br>
+        <div class="certifications-grid">
+            {% for cert in category.items %}
+            <div class="certification" data-pdf="{{ cert.pdf }}" data-link="{{ cert.link }}">
+                <div class="cert-thumbnail">
+                    <img src="/assets/logos/{{ cert.logo | default: 'default-logo.png' }}" alt="{{ cert.name }} logo" class="cert-logo">
+                </div>
+                <p>{{ cert.name }}<br><small>{{ cert.date }}</small></p>
+                <div class="indicator {% if cert.pdf and cert.link %}green{% elsif cert.pdf %}blue{% else %}red{% endif %}"></div>
             </div>
-            <p>{{ cert.name }}<br><small>{{ cert.date }}</small></p>
-            <div class="indicator {% if cert.pdf and cert.link %}green{% elsif cert.pdf %}blue{% else %}red{% endif %}"></div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
-</section>
-{% endfor %}
-<div id="bottom"></div> <!-- Punto di ancoraggio per "Vai in fondo" -->
+    </section>
+    {% endfor %}
+</div>
 
 <!-- Pop-up scelta risorsa -->
 <div id="resource-choice-popup">
@@ -53,45 +50,30 @@ permalink: /certifications
 
 <!-- CSS -->
 <style>
-    /* Stile per la navigazione fissa a destra */
-    nav ul {
+    /* Navigation Menu */
+    #menu {
+        background: #333;
+        padding: 10px 0;
+        text-align: center;
+    }
+    #menu ul {
         list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
         padding: 0;
         margin: 0;
-        position: fixed;
-        top: 50px; /* Posiziona il menu 50px sotto il top della pagina */
-        right: 20px; /* Posiziona il menu a destra */
-        z-index: 999;
-        /* Rimosso il colore di sfondo, quindi utilizza il colore di default */
-        border-radius: 10px;
-        padding: 10px;
-        width: 200px; /* Imposta la larghezza della barra laterale */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
-
-    nav ul li {
-        margin: 5px;
+    #menu li {
+        margin: 10px 15px;
     }
-
-    nav ul li a {
+    #menu a {
+        color: white;
         text-decoration: none;
-        color: #007bff;
         font-size: 16px;
-        padding: 5px 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
     }
-
-    nav ul li a:hover {
-        background-color: #007bff;
-        color: white;
-    }
-
-    nav ul li a.active {
-        background-color: #007bff;
-        color: white;
+    #menu a:hover, #menu a.active {
+        text-decoration: underline;
     }
 
     /* Grid delle certificazioni */
@@ -148,24 +130,14 @@ permalink: /certifications
     /* Disabilita Scroll */
     body.disable-scroll { overflow: hidden; }
 
-    @media (max-width: 768px) {
-        nav ul {
-            flex-direction: column;
-            right: 10px; /* Riduce la distanza dalla destra */
-        }
-        nav ul li {
-            margin: 10px;
-        }
+    /* Nascondi tutte le categorie di certificazioni per default */
+    .certification-category {
+        display: none;
     }
 
-    /* Aggiunta di uno stile per i punti di ancoraggio */
-    #top {
-        padding-top: 50px;
-        margin-top: -50px;
-    }
-    #bottom {
-        padding-bottom: 50px;
-        margin-bottom: -50px;
+    /* Mostra tutte le certificazioni quando la categoria è "all" */
+    .certification-category[data-category="all"] {
+        display: block;
     }
 </style>
 
@@ -208,37 +180,25 @@ permalink: /certifications
         document.body.classList.remove('disable-scroll');
     }
 
-    // Aggiungere uno scorrimento fluido
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    // Funzione per filtrare le certificazioni
+    document.querySelectorAll('#menu a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+            const category = this.getAttribute('data-category');
+            document.querySelectorAll('.certification-category').forEach(section => {
+                if (category === 'all' || section.getAttribute('data-category') === category) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
             });
+            // Rimuovi la classe "active" da tutte le voci del menu
+            document.querySelectorAll('#menu a').forEach(a => a.classList.remove('active'));
+            // Aggiungi la classe "active" alla voce del menu cliccata
+            this.classList.add('active');
         });
     });
 
-    // Aggiungi osservatore per cambiare la classe attiva sui titoli
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav ul li a');
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const activeId = entry.target.id;
-                navLinks.forEach(link => {
-                    if (link.getAttribute('href') === `#${activeId}`) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-            }
-        });
-    }, { threshold: 0.5 }); // 50% della sezione deve essere visibile per essere considerata attiva
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    // Imposta la voce "ALL" come selezionata di default
+    document.querySelector('[data-category="all"]').click();
 </script>
