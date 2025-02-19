@@ -5,16 +5,18 @@ id: home
 permalink: /
 ---
 
-<strong>Latest</strong>
+
+<h2>Latest</h2>
 
 {% assign latest_note = site.notes | sort: "last_modified_at_timestamp" | reverse | first %}
 
 {% if latest_note %}
-
-  <h4><a class="internal-link" href="{{ site.baseurl }}{{ latest_note.url }}">{{ latest_note.title }}</a></h4>
+  <div style="display: block; text-align: center;">
+  <strong ><a class="internal-link" href="{{ site.baseurl }}{{ latest_note.url }}">{{ latest_note.title }}</a></strong>
   {% assign word_count = latest_note.content | number_of_words %}
   {% assign reading_time = word_count | divided_by: 200 | ceil %}
   <p>{{ latest_note.last_modified_at | date: "%B %d, %Y" }} · {{ reading_time }} min read</p>
+  </div>
   <p>{{ latest_note.content | strip_html | truncatewords: 50 }}</p>
   <!--<a href="{{ site.baseurl }}{{ latest_note.url }}" class="read-more">Keep reading →</a>-->
 {% endif %}
@@ -24,8 +26,8 @@ permalink: /
   Take a look at <span style="font-weight: bold">[[Your first note]]</span> to get started on your exploration.
 </p>
 -->
-
-<strong>Topics</strong>
+<hr>
+<h2>Topics</h2>
 
 <p>
   {% assign tag_list = "" | split: "," %}
@@ -44,7 +46,8 @@ permalink: /
 
 </p>
 
-<strong>Recently updated notes</strong>
+<hr>
+<h2>Recently updated notes</h2>
 
 <ul>
   {% assign recent_notes = site.notes | sort: "last_modified_at_timestamp" | reverse %}
@@ -54,6 +57,7 @@ permalink: /
     </li>
   {% endfor %}
 </ul>
+
 
 <style>
   .wrapper {
